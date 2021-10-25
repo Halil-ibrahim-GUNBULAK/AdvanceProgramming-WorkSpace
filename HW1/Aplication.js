@@ -1,10 +1,11 @@
-  
 const T = [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
 const q=[0,0,0,0,0,0,0,0,0,0]
 
 function Row(){
     var sonuc  = ""
+
     var head =
+
     `
     <tr>
         <th></th><th>Y = ${T[0]}</th>
@@ -22,7 +23,9 @@ function Row(){
     sonuc = sonuc + head
     for (let i=0; i <= 9; i++){
         var satir = 
+
         `
+
         <tr>
             <th>X = ${i}</th>
             <td>${q[0].toFixed(4)}<span class="tip">Col1</span></td>
@@ -36,8 +39,8 @@ function Row(){
             <td>${q[8].toFixed(4)}<span class="tip">Col9</span></td>
             <td>${q[9].toFixed(4)}<span class="tip">Col10</span></td>
         </tr>
-
         `
+
         for(let j = 0 ;j<10 ;j++){
            
          
@@ -45,7 +48,7 @@ function Row(){
             
          
         }
-        sonuc = sonuc + satir
+        sonuc = sonuc +  satir
     }
     
     document.querySelector("#tablo").innerHTML = sonuc
