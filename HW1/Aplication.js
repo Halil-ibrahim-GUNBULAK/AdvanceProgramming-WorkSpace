@@ -1,9 +1,9 @@
   
-const L = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const p=[1,2,3,4,5,6,7,8,9]
+const L = [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
+const p=[]
 
 for (let λ of L) {
-    p.push(Math.exp(L))
+    p.push(L)
 }
 
 function makeRows(){
@@ -19,8 +19,7 @@ function makeRows(){
         <th>λ = ${L[5]}</th>
         <th>λ = ${L[6]}</th>
         <th>λ = ${L[7]}</th>
-        <th>λ = ${L[8]}</th>
-        <th>λ = ${L[9]}</th>
+        <th>λ = ${L[8]}</th>  
       
     </tr>
     `
@@ -38,12 +37,11 @@ function makeRows(){
             <td>${p[6].toFixed(4)}<span class="tip">C6</span></td>
             <td>${p[7].toFixed(4)}<span class="tip">C7</span></td>
             <td>${p[8].toFixed(4)}<span class="tip">C8</span></td>
-            <td>${p[9].toFixed(4)}<span class="tip">C9</span></td>
         </tr>
 
         `
         for(let j = 0 ;j< L.length ;j++){
-            p[j] = (p[j] * L[j])/(i+1)
+            p[j] = (Math.exp(p[j] * L[i]))
         }
         sonuc = sonuc + satir
     }
