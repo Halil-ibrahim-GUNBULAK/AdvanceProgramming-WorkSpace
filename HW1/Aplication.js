@@ -33,10 +33,10 @@ function makeRows(){
             <td>${p[2].toFixed(4)}<span class="tip">C3</span></td>
             <td>${p[3].toFixed(4)}<span class="tip">C4</span></td>
             <td>${p[4].toFixed(4)}<span class="tip">C5</span></td>
-            <td>${p[5].toFixed(4)}<span class="tip">C5</span></td>
-            <td>${p[6].toFixed(4)}<span class="tip">C6</span></td>
-            <td>${p[7].toFixed(4)}<span class="tip">C7</span></td>
-            <td>${p[8].toFixed(4)}<span class="tip">C8</span></td>
+            <td>${p[5].toFixed(4)}<span class="tip">C6</span></td>
+            <td>${p[6].toFixed(4)}<span class="tip">C7</span></td>
+            <td>${p[7].toFixed(4)}<span class="tip">C8</span></td>
+            <td>${p[8].toFixed(4)}<span class="tip">C9</span></td>
         </tr>
 
         `
