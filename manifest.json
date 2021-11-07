@@ -1,13 +1,26 @@
 {
-    "name": "Advanced Programming",
-    "start_url": "index.html",
-    "display": "standalone",
-    "background_color": "red",
+  "name": "305 Repo",
+  "short_name": "305",
+  "description": "Advanced Programming Files",
+  "start_url": "/ileriprogramlama2021/index.html",
+  "display": "standalone",
+  "theme_color": "#457cdb",
+  "background_color": "cyan",
     "icons": [
-      {
-        "src": "images/hig.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      }
+        {
+            "src": "logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "logo.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
     ]
 }
