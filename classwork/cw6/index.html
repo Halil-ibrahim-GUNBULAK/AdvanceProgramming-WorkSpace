@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0043)https://blm305.github.io/2021/work/CW6.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
-    <title>xxx </title>
+    <title>Halil İbrahim GÜNBUlAK </title>
 
   <style> /* CSS comment */
     body { max-width: 440px; }
@@ -15,52 +15,49 @@
 
 <body>   <!-- HTML comment: Modify all items marked xxx -->
 
-<h2 id=title title="Put your name here"></h2>
+<h2 id="title" title="Put your name here">Halil İbrahim GÜNBULAK</h2>
 <p title="navigator.platform">
-  Platform: <span id=plat></span>
+  Platform: <span id="plat">xxx</span>
 </p>
 <p title="Battery level (integer)">
-  Battery level: <span id=lev></span>
+  Battery level: <span id="lev">xxx</span>
 </p>
 <p title="Latitude/Longitude (4 digits)">
-  Location: <span id=loc></span>
+  Location: <span id="loc">xxx</span>
 </p>
 <p title="Does the URL exist?">
-  URL <input type=url id=url value="https://maeyler.github.io/"
-      onChange="check()"> <span id=resp></span>
+  URL <input type="url" id="url" value="https://maeyler.github.io/" onchange="check()"> <span id="resp">OK</span>
+</p><p>SS: 
+  <a href="CW6.PNG" 
+     target="NewTab">Ekran Görüntüsü</a>
 </p>
-<hr />
-<b>Sample code</b>
-<pre id=sample>This text is not shown. Why?</pre>
 
-<hr />
+<hr>
+<b>Sample code</b>
+<pre id="sample">function init() {<br>//complete the code below<br>    plat.innerText = 'xxx';<br>    navigator.geolocation<br>      .getCurrentPosition(p =&gt;<br>        loc.innerText = 'xxx'<br>      );<br>    navigator.getBattery().then(b =&gt;<br>        lev.innerText = 'xxx'<br>      );<br>    check()<br>}<br>function check() {<br>//complete the code below<br>    fetch(url.value).then(r =&gt; <br>      resp.innerText = r.ok? 'OK' : 'xxx'<br>    ).catch(e =&gt; <br>      resp.innerText = 'err'<br>    )<br>}</pre>
+
+<hr>
 
 <script>
 "use strict";
+function check() { 
+  fetch(url.value).then(r =>  r.ok ? resp.innerText = "OK" : resp.innerText="false" )}
+ 
 function init() {
-//complete the code below
-    plat.innerText = 'xxx';
-    navigator.geolocation
-      .getCurrentPosition(p =>
-        loc.innerText = 'xxx'
-      );
-    navigator.getBattery().then(b =>
-        lev.innerText = 'xxx'
-      );
-    check()
+  plat.innerText =navigator.userAgentData.platform;
+  navigator.geolocation.getCurrentPosition(x => 
+  loc.innerText =(x.coords.latitude.toFixed(3))+" , "+x.coords.longitude.toFixed(3));
+  navigator.getBattery().then(b => lev.innerText = "% "+(b.level*100) );
 }
-function check() {
-//complete the code below
-    fetch(url.value).then(r => 
-      resp.innerText = r.ok? 'OK' : 'xxx'
-    ).catch(e => 
-      resp.innerText = 'err'
-    )
-}
+
+
+
     title.innerText = document.title;
     sample.innerText = init+'\n'+check;
     init();
+    check();
 </script>
 
-</body>
-</html>
+
+
+</body></html>
