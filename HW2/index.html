@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" sizes="192x192" href="images/hig.png">
     <link rel="manifest" href="manifest.json">
-    <title>Full Stack Developer 2021</title>
+    <title>Adv Prog - Homepage</title>
 </head>
 
 <body>
@@ -21,15 +21,14 @@
         <div class="container">
             <img src="logo.png" height="35" />
             <h3>Advanced Programming</h3>
-			
+			<h2>Halil ibrahim GÜNBULAK</h2>
         </div>
     </header>
     <div class="links">
         <div class="container">
-			<h5>Autor: Halil İbrahim GÜNBULAK</h5>
             <h3>GitHub</h3>
             <ul>
-                <li>Click <a href="https://github.com/Halil-ibrahim-GUNBULAK" target="_blank">here</a> for Github Account.</li>
+                <li>Click <a href="https://github.com/Halil-ibrahim-GUNBULAK/AdvanceProgramming-WorkSpace" target="_blank">here</a> for Github Account.</li>
             </ul>
             <h3>Class Works</h3>
             <ul>
@@ -66,11 +65,13 @@
 
             <h3> Term Project</h3>
             <ul>
-				<h5> Not Defined Yet</h5>
+                <a href="https://kislakba.github.io/JavaScript-Course-Example/termProject/tetris.html">Tetris Game(Term
+                    Project)</a>
             </ul>
             <h3> Repository</h3>
             <ul>
-                <a href="https://github.com/Halil-ibrahim-GUNBULAK/AdvanceProgramming-WorkSpace">Go Repository </a>
+                <a href="https://github.com/kislakba/JavaScript-Course-Example">Course Repository (Temporarily
+                    Private)</a>
             </ul>
         </div>
     </div>
@@ -78,8 +79,8 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
-                .register('https://halil-ibrahim-gunbulak.github.io/AdvanceProgramming-WorkSpace/main.js')
-                .then((reg) => { console.log('SW Registered', reg) })
+                .register('main.js')
+                .then((reg) => { console.log('Main Registered', reg) })
                 .catch(console.log)
         }
     </script>
