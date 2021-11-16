@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+   <h1>merhaba gençler</h1>
+   <div id='div1'>Java öğrenin gençler</div>
+      
+
+
+
+
+
+
+
+
+    <script>
+        //Ders 3
+        //document.write(10+20)// ekrana yazıyor
+        //console.log(20+10) //konsola yazıyor
+        //window.alert("hosgeldin")// kullanıcıya alert veriyor
+        //window.print()// sayfayı yazdırıyor
+        document.getElementById("div1").innerHTML="<b>Bunu değişelim</b>" // yukarıdaki div1 e gidip değiştik yazıyı ve kalın yazdık <b> ile
+        
+            //ders5 Degiskenler
+       /* var sayi=10
+          var sayi="merhaba"
+          document.write(sayi)  output =>merhaba
+      
+       let meyveler=["array","elma","armut"] //arrayde tutma
+       let kisi={'ad':'ahmet','soyad':'nebiliyimabi','yas':20} // sözlük yapma
+       document.write(kisi.yas)
+       console.log(typeof kisi) //output object
+       console.log(typeof kisi.yas) // output=> number */
+         
+       //Ders 6 Fonksiyonlar
+   /* function fon(par){
+        console.log(par)
+        return par+" " +par+par
+    }
+    console.log(fon("merhaba"))*/
+
+     //Ders 7 çevirmeler
+    /*let y='5.14'
+     x=parseInt(y)
+     z=Number(y)
+     t=parseFloat(y)
+     q=t.toString()
+     
+     console.log(x,z,y,t,q,t.toFixed(1))  //output  5 5.14 '5.14' 5.14 '5.14' '5.1' */
+
+     //Ders 8
+    /* let a="asdjaksdjasdp kqje web aj odja   web \n"
+     console.log(a.length)
+     console.log(a.indexOf('web')) //a.search aynı
+     console.log(a.lastIndexOf('web'))
+     console.log(a.slice(10)) // ilk 10 u kesti gerisini yazdı
+     console.log(a.slice(-15,-2))// tersten başladı kesti ortayı aldı 
+     console.log(a.substr(7,5))// 7 den sonra 5 karakter gösterdi - liside sondan başlıyor
+     console.log(a.replaceAll('web','degis'))//xteki webleri degis ile degistirdi
+     //Uppercase and lowerCase aynı split de aynı trim() baştaki ve sondaki saçma  boşlukları siler
+     //mset size olur array length olur  // charCodeAt() bu o indextekinin Tablodaki yerini verir */
+
+     //Ders9 arraylar
+
+ 
+     let meyveler=["array","elma","armut"] //arrayde tutma
+     let sebzeler=["marul"]
+     meyveler.pop()
+     
+     console.log(meyveler) // output pop son elemanı sile output array , elma
+     meyveler.shift()//ilk elemanı siler arrayı sildi elma kaldı sadece
+     meyveler.unshift("yeni meyve") // birinci indexe yeni meyve ekledi
+     console.log(meyveler) // output  [' yeni meyve', 'elma']
+     console.log(meyveler.slice(0,1)) // sadece ilk elemanı alır böyle
+     console.log(meyveler.splice(1,1,'armutogluarmut')) //1.indexe git sonra 0 eleman sil armutogluarmutu ekle
+     meyveler.push("kiraz") // sonuna kiraz ekler
+     console.log(meyveler) // output ['yeni meyve', 'armutogluarmut', 'kiraz']
+     console.log(meyveler.concat(sebzeler)) //output  [' yeni meyve', 'armutogluarmut', 'kiraz', 'marul'] 
+     meyveler=meyveler.sort()
+     console.log(meyveler)
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
