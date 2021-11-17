@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="../images/hig.png">
+    <title>Make Table  </title>
+
+  <style>
+    #sample { overflow-x: auto; }
+    table { border-collapse: collapse; }
+    th { color: rgb(172, 26, 26); padding: 5px 5px; }
+    td { 
+        border: 1px solid red; 
+        padding: 5px 5px; 
+        text-align: center; 
+        position: relative;
+    }
+    td:hover .tip {
+        visibility: visible;
+    }
+    td .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: cyan;
+        color: white;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+        left: 5px; 
+        top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title>Multiply X*Y Table</h2>
+<table id="tablo" ></table>
+
+
+
+
+<hr>
+<pre id="sample"></pre>
+<p><img src="../images/carpim.png" alt="TableImage" style="height:400px;width:400px;">
+  <ul>
+    <a href="https://timestableslearning.com/TR/carpim-tablosu-matrisi" >Table Source  </a>
+</ul>
+
+
+<script src="Aplication.js"></script>
+
+</body>
+</html> 

@@ -1,55 +1,131 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" sizes="192x192" href="../images/hig.png">
-    <title>Make Table  </title>
+   
+    <title>Multiply X*Y Table</title>
 
-  <style>
-    #sample { overflow-x: auto; }
-    table { border-collapse: collapse; }
-    th { color: rgb(172, 26, 26); padding: 5px 5px; }
-    td { 
-        border: 1px solid red; 
-        padding: 5px 5px; 
-        text-align: center; 
-        position: relative;
-    }
-    td:hover .tip {
-        visibility: visible;
-    }
-    td .tip {
-        visibility: hidden;
-        font-size: small;
-        background-color: cyan;
-        color: white;
-        text-align: center;
-        padding: 5px 5px;
-        position: absolute;
-        left: 5px; 
-        top: 20px;
-    }
-  </style>
+    <style>
+        body {
+            max-width: 440px;
+        }
+
+        #sample {
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            color: blue;
+            padding: 5px 5px;
+        }
+
+        td {
+            border: 1px solid blue;
+            padding: 5px 5px;
+            text-align: center;
+            position: relative;
+        }
+
+        td:hover .tip {
+            visibility: visible;
+        }
+
+        td .tip {
+            visibility: hidden;
+            font-size: small;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 5px 5px;
+            position: absolute;
+            left: 5px;
+            top: 20px;
+        }
+    </style>
 </head>
 
 <body>
+    <center>
+        <h2 id=title></h2>
 
-<h2 id=title>Multiply X*Y Table</h2>
-<table id="tablo" ></table>
+       
 
+        <table id="tablo"></table>
 
+        <p id=out style="font-size:small"></p>
 
+        <form oninput="tableFromInput()">
+            Rows:
+            <input type=number id=rows style="width:40px" value=9>
+            Columns:
+            <input type=number id=cols style="width:40px" value=6>
+            <br><br>
+            <input type=reset>
+            <input type=button value="Make Table" onclick="tableFromInput()">
+        </form>
+    </center>
 
-<hr>
-<pre id="sample"></pre>
-<p><img src="../images/carpim.png" alt="TableImage" style="height:400px;width:400px;">
-  <ul>
-    <a href="https://timestableslearning.com/TR/carpim-tablosu-matrisi" >Table Source  </a>
-</ul>
+    <a href="screenshot.png">Screenshot</a>
 
-
-<script src="Aplication.js"></script>
+    <hr />
+    <b>Sample code</b>
+    <pre id=sample></pre>
+    <hr />
+    <p><img src="../images/carpim.png" alt="TableImage" style="height:400px;width:400px;">
+        <ul>
+          <a href="https://timestableslearning.com/TR/carpim-tablosu-matrisi" >Table Source  </a>
+      </ul>
+    <script>
+        "use strict";
+        
+        function makeRows(m, n) {
+            let row = "<th></th>";
+            for (let yChar = 0; yChar <=n; yChar += 1)
+                row += "<th>" + "Y=" + yChar + "</th>";
+            let text = "<tr>" + row + "</tr>";
+            let tempArray = [];
+            let counter = 0;
+            for (let xValue = 0; xValue <=m; xValue++) {
+                row = "<th>" + "X=" + xValue + "</th>";
+                for (let yValue = 0; yValue <= n; yValue +=1) {
+            
+                   
+                        let firstLine = (xValue)*yValue;
+                        row += "<td>"+" " + firstLine.toFixed(0) +" " +"</td>";
+                        tempArray.push(firstLine);
+                    
+                    // row = "<td>"+ " " +"</td>";
+                }
+                text += "<tr>" + row + "</tr>";
+            }
+            let t =  m + "x" + n + " TABLE ";
+           
+            tablo.innerHTML = text; out.innerText = t;
+            
+        }
+        function tableFromMenu() {
+            let [m, n] = size.value.split("x");
+            makeRows(m, n); //a[0], a[1]
+            rows.value = m;
+            cols.value = n;
+        }
+        function tableFromInput() {
+            let m = rows.value;
+            let n = cols.value;
+            makeRows(m, n);
+           
+        }
+        title.innerText = document.title;
+        sample.innerText = makeRows.toString();
+        makeRows(9, 6);
+    </script>
 
 </body>
-</html> 
+
+</html>
