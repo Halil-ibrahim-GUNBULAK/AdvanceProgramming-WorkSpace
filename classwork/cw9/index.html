@@ -62,12 +62,12 @@
 
         <form oninput="tableFromInput()">
             Rows:
-            <input type=number id=rows style="width:40px" value=10>
+            <input type=number id=rows style="width:40px" value=9>
             Columns:
-            <input type=number id=cols style="width:40px" value=10>
+            <input type=number id=cols style="width:40px" value=6>
             <br><br>
             <input type=reset>
-           
+            <input type=button value="Make Table" onclick="tableFromInput()">
         </form>
     </center>
 
@@ -123,7 +123,7 @@
         }
         title.innerText = document.title;
         sample.innerText = makeRows.toString();
-        makeRows(10, 10);
+        makeRows(9, 6);
     </script>
 
 </body>

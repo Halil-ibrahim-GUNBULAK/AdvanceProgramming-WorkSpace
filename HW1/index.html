@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
    
-    <title>Multiply X*Y Table</title>
+    <title>Multiplication Table</title>
 
     <style>
         body {
-            max-width: 440px;
+            max-width: 400px;
         }
 
         #sample {
@@ -18,15 +18,16 @@
 
         table {
             border-collapse: collapse;
+          
         }
 
         th {
-            color: blue;
+            color: rgb(255, 0, 0);
             padding: 5px 5px;
         }
 
         td {
-            border: 1px solid blue;
+            border: 2px solid blue;
             padding: 5px 5px;
             text-align: center;
             position: relative;
@@ -66,8 +67,9 @@
             Columns:
             <input type=number id=cols style="width:40px" value=10>
             <br><br>
-            <input type=reset>
+            <input type=reset value="Clear">
             <input type=button value="Make Table" onclick="tableFromInput()">
+           
         </form>
     </center>
 
@@ -85,22 +87,22 @@
         "use strict";
         
         function makeRows(m, n) {
-            let row = "<th></th>";
-            for (let yChar = 0; yChar <=n; yChar += 1)
-                row += "<th>" + "Y=" + yChar + "</th>";
+            let row = "<th>X</th>";
+            for (let yChar = 1; yChar <=n; yChar += 1)
+                row += "<th>" + yChar + "</th>";
             let text = "<tr>" + row + "</tr>";
             let tempArray = [];
             let counter = 0;
-            for (let xValue = 0; xValue <=m; xValue++) {
-                row = "<th>" + "X=" + xValue + "</th>";
-                for (let yValue = 0; yValue <= n; yValue +=1) {
+            for (let xValue = 1; xValue <=m; xValue++) {
+                row = "<th>" + xValue +"\t\t" +"</th>";
+                for (let yValue = 1; yValue <= n; yValue +=1) {
             
                    
                         let firstLine = (xValue)*yValue;
                         row += "<td>"+" " + firstLine.toFixed(0) +" " +"</td>";
                         tempArray.push(firstLine);
                     
-                    // row = "<td>"+ " " +"</td>";
+                      
                 }
                 text += "<tr>" + row + "</tr>";
             }
