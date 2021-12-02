@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="../images/logo.png">
+    <title>JS Animation</title>
+
+  <style>
+    body { max-width: 500px; }
+    #sample { overflow-x: auto; }
+    button {
+      user-select: none;
+      cursor: pointer;
+    }
+    #box {
+      font-size: 180px;
+      background: #cfc;
+      width: 300px;
+      height: 240px;
+      position: relative;
+    }
+    #iii, #dot {
+      user-select: none;
+      position: absolute;
+      left: 130px;
+    }
+    #iii {
+      color: blue;
+    }
+    #dot {
+      background: rgba(0, 0, 0, 0);
+      color: #da0;
+      top: -105px;
+    }
+    #out {
+      height: 35px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+<div id=box onClick="box.animate(t2, 5000)">
+  <span id=iii>ı</span>
+  <span id=dot>.</span>
+</div>
+
+<p id=but><button onClick="this.animate(t1, 5000)">translate</button>
+<button onClick="dot .animate(t2, 5000)">rotate</button>
+<button onClick="box .animate(t3, 6000)">background</button>
+<button onClick="out .animate(t4, 6000)">fontSize</button>
+</p>
+
+<p id=out>Animations in JS are simple and powerful</p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<hr />
+<p>Ref: <a href="https://webkit.org/blog/8343/web-animations-in-webkit/" 
+   target="NewTab">Web Animations in WebKit</a>
+</p>
+
+<script>
+"use strict";
+title.innerText = document.title;
+let
+  r0 = "rotate(0)", x0 = "translateX(0)",
+  t1 = { transform: [x0, "translateX(290px)", x0] },
+  t2 = { transform: [r0, "rotate(90deg)", r0, "rotate(-90deg)", r0] },
+  t3 = { background: ["yellow", "cyan", "magenta", "yellow"] },
+  t4 = { fontSize: ["100%", "140%", "100%", "80%", "100%"] },
+  a = [t1, t2, t3, t4];
+sample.innerText = but.innerHTML
+  +'\nt3 = '+JSON.stringify(t3)
+  +'\nt4 = '+JSON.stringify(t4)
+</script>
+
+
+</body>
+</html>

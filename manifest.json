@@ -1,0 +1,15 @@
+{
+    "name": "Advanced Programming HG",
+    "short_name": "AdvPrg",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "wheat",
+    "theme-color": "wheat",
+    "icons": [
+      {
+        "src": "images/hig.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
