@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="../images/icon192.png">
+  <title>GitHub Users</title>
+  <style>
+    body {
+        max-width: 440px;
+    }
+    img {
+        padding-right: 12px; 
+        width: 64px;
+        float: left;
+    }
+    pre { overflow-x: auto; }
+    #out { color: blue; }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<input type=text id=usr value=blm-fsmvu onChange="readUser()">
+<p id=out>Reading data</p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: 
+  <a href="https://docs.github.com/en/rest/reference/rate-limit" target=NewTab>GitHub API</a> &emsp;
+  <a href="await.html" target=NewTab>await</a>
+</p>
+
+<script>
+"use strict";
+function error(e) {
+    out.innerText = e
+    out.style.color = 'red'
+    console.error(e)
+}
+function cause(s) {
+  switch (s) {
+    case 403:
+      return 'Rate limit exceeded'
+    case 404:
+      return usr.value+' not found'
+    default:
+      return 'Status '+s
+  }
+}
+async function toJSON(url) {
+  try {
+    let r = await fetch(url)
+    if (!r.ok) throw cause(r.status)
+    return r.json()
+  } catch (e) {
+    error(e)
+  }
+}
+async function readUser() {
+    const URL = "https://api.github.com/users/"
+    const BR = '<BR>'
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) return
+    out.style.color = ''
+    //start with avatar
+    out.innerHTML = `<img src="${u.avatar_url}">`
+    //add name and location
+    let s = (u.name || u.login)
+    if (u.location) s += ', '+u.location
+    out.innerHTML += s+BR; console.log(s)
+    //add link to GitHub 
+    let h = "github.com/"+u.login
+    out.innerHTML += 
+    `<a href="https://${h}" target=NewTab>${h}</a>`
+    //add repo count and repo names
+    let n = u.public_repos
+    out.innerHTML += BR+`${n} public repos`+BR+BR
+    if (!n) return
+    let b = await toJSON(URL+u.login+"/repos")
+    out.innerHTML += b.map(x => x.name).join(", ")
+}
+    title.innerText = document.title
+    sample.innerText = toJSON +'\n'+ readUser
+    readUser()
+</script>
+<script src="../navbar.js"></script>
+
+</body>
+</html>

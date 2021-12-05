@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="../images/hig.png">
+    <title>Dancing Square</title>
+
+  <style>
+    body { max-width: 500px; }
+    #sample { overflow-x: auto; }
+    button {
+      user-select: none;
+      cursor: pointer;
+    }
+    div.picture1 {
+    width:100px; /*width of your image*/
+    top: 100px;
+    background-color: transparent;
+    left: 100px;
+    height:100px; /*height of your image*/
+    background-image:url('../images/favicon.ico');
+    margin:0; /* If you want no margin */
+    padding:0; /*if your want to padding */
+    }
+    div.picture2 {
+    width:100px; /*width of your image*/
+    top: -15px;
+    left: 100px;
+    height:100px; /*height of your image*/
+    transform: rotateX(180deg);
+    background-color: transparent;
+    background-image:url('images/pizzaDilim.png');
+    margin:0; /* If you want no margin */
+    padding:0; /*if your want to padding */
+    }
+    div {
+      font-size: 180px;
+      background: #cfc;
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+    #iii, #dot {
+      user-select: none;
+      position: absolute;
+      left: 130px;
+    }
+    #iii {
+      color: blue;
+    }
+    #dot {
+      background: rgba(0, 0, 0, 0);
+      color: #da0;
+      top: -105px;
+    }
+    #out {
+      height: 35px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+<div id=box>
+  
+  <div class="picture1" id=picture onclick="picture.animate(t2,5000)"></div>
+  <div class="picture1" id=picture3 onclick="picture3.animate(t2,5000)" style="transform: rotate(90deg); top:-12px;left:88px;"></div>
+</div>
+
+<p>
+<button onClick="picture.animate(t2, 5000);picture3.animate(t1,5000)">Click Me</button>
+
+</p>
+
+
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<hr />
+<p>Ref: <a href="https://webkit.org/blog/8343/web-animations-in-webkit/" 
+   target="NewTab">Web Animations in WebKit</a>
+</p>
+
+<script>
+"use strict";
+const
+  r0 = "rotate(0)", x0 = "translateX(0)",
+  r1= "rotate(90)",
+  t1 = { transform: [r1, "rotate(+360deg)","rotate(-360deg)"],background: ["yellow", "cyan", "magenta", "yellow"],top:['30px','20px','10px',"-10px","-30px","-50px","-70px"] },
+  t2 = { transform: [r0, "rotate(-360deg)","rotate(360deg)"], background: ["yellow", "cyan", "magenta", "yellow"],top:['-70px','-50px','-30px','-20px','-10px',"10px","30px"] },
+  t3 = { background: ["yellow", "cyan", "magenta", "yellow"] },
+  t4 = { fontSize: ["100%", "140%", "100%", "80%", "100%"] };
+    title.innerText = document.title;
+    sample.innerText 
+    = ' t1 = { transform: [r1, "rotate(+360deg)","rotate(-360deg)"], \n background: ["yellow", "cyan", "magenta", "yellow"], \n top:["30px","20px","10px","-10px","-30px","-50px","-70px"]}'+"\n\n"
+    +' t2 = { transform: [r0, "rotate(-360deg)","rotate(360deg)"], \n background: ["yellow", "cyan", "magenta", "yellow"],  \n top:["-70px","-50px","-30px","-20px","-10px","10px","30px"]}'
+</script>
+<script src=""></script>
+
+</body>
+</html>
