@@ -78,7 +78,7 @@ async function init() {
     await askLocation()
     let p;
     let t,g=getPos();
-    console.log(t,g,"konumlar")
+  
     if(t!=null && g !=null ){
          p= {lat:t, lng:g}
          document.getElementById("latitude").value=lat
@@ -125,11 +125,11 @@ function toHM(t, round) {
 async function askLocation() {
     let name = 'geolocation'
     let result = await navigator.permissions.query({name})
-    console.log("içeri girdi",result);
+  
     if (result.state == 'granted') {    
         navigator.geolocation.getCurrentPosition(console.log)
         navigator.geolocation.getCurrentPosition(getLocation1, error);
-        console.log("else içi");    
+          
      
     } else  {
         try {
