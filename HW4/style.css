@@ -591,7 +591,7 @@ header .navbar a:hover{
 
 }
 
-@media(max-width:768px){
+@media(max-width:450px){
 
   #menu-bar{
     display: initial;
@@ -621,7 +621,7 @@ header .navbar a:hover{
 
 }
 
-@media(max-width:450px){
+@media(max-width:400px){
 
   html{
     font-size: 50%;
@@ -629,20 +629,22 @@ header .navbar a:hover{
 
   .order .row form .inputBox input{
     width:100%;
+    min-width: 400px;
   }
 
 }
 /*        CART PAGE  */
 
 .products-container{
-  max-width: 650px;
+  max-width: 650px ;
+  min-width: 320px;
   width: 100%;
+  
 
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 0 auto;
   padding-bottom: 100px;
-  min-width: 450px;
   margin-top: 150px;
 } 
 
@@ -650,6 +652,7 @@ header .navbar a:hover{
 .product-header{
   width: 100%;
   max-width: 650px ;
+  min-width: 320px;
   display: flex;
   justify-content: flex-start;
   border-bottom: 2px  solid lightgrey;
@@ -667,6 +670,7 @@ header .navbar a:hover{
 .products1{
   width: 100%;
   max-width: 650px ;
+  min-width: 320px;
   min-height: 40px;
   border-bottom: 2px solid lightgrey;
   justify-content: space-evenly;
@@ -727,8 +731,7 @@ header .navbar a:hover{
 .basketApprove{
   width: 100%;
   max-width: 650px ;
-  min-height: 40px;
-
+  min-width: 320px;
   justify-content: space-evenly;
   display:flex;
   flex-wrap: wrap;
