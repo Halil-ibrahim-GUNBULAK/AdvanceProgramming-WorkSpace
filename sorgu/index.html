@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Remote URL or Local file </title>
+
+<style>
+  body { max-width: 500px; }
+  div { margin: 12px 0; }
+  img {
+    max-width: 100%;
+    border: 1px solid darkgray;
+  }
+  #remote {
+    width: 290px;
+    font: 13px arial, sans-serif;
+    margin: 14px 0;
+    border: 1px solid darkgray;
+    padding: 5px;
+  }
+  #sample, #out { overflow-x: auto; }
+  #disp1 { color: blue; }
+</style>
+</head>
+
+<body>
+<h2 id=title></h2>
+
+<div class="text">GO</div>
+
+
+
+<p>Ref: <a href="Reading_files">Reading files</a>
+ </p>
+
+<script>
+"use strict";
+const RDR = new FileReader();
+function displayURL(u) {
+    localStorage.setItem("Text",u)
+}
+
+title.innerText = document.title
+sample.innerText = displayURL+'\n'+displayBlob +'\n' + writeAll
+</script>
+
+</body>
+</html>

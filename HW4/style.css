@@ -621,7 +621,7 @@ header .navbar a:hover{
 
 }
 
-@media(max-width:400px){
+@media(max-width:650px){
 
   html{
     font-size: 50%;
@@ -629,7 +629,7 @@ header .navbar a:hover{
 
   .order .row form .inputBox input{
     width:100%;
-    min-width: 400px;
+    min-width: 320px;
   }
 
 }
