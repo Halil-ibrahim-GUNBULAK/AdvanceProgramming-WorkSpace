@@ -148,7 +148,16 @@ function findBestMaker(txt, Maker) {
         }
      
     }
-    report("id:"+id+" gpa: ",MaxGpa);
+    for (let line of txt.split('\n')) {//Tüm öğrencileri göstermek için
+        if (!line) continue
+        let std = Maker.fromString(line)
+        if(std.gpa==MaxGpa){ //Max GPA is global
+            report("id:"+std.id+" gpa: ",MaxGpa);
+        }
+     
+    }
+    //report("id:"+std.id+" gpa: ",MaxGpa); //sadece 1 öğrenci görmek için 
+    //bu kodun açılması yukarıdaki 2.forun kapatılması lazım
     return id;
 }
 function findBest() { //the best gpa in stdMap
