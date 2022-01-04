@@ -39,14 +39,27 @@ function findIndex(cartItems){
  
   let i=0
   Object.values(cartItems).map(item =>{
-          
-    tags[i]=(item.tag)
-    i++;
+          if(item!=null){
+            tags[i]=(item.tag)
+            i++;
+          }
+     
   })
+}
+function myFunction(message) {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+  x.innerText= message
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 function plusAndminus(){
   let plusBtns= document.querySelectorAll('.btn2')
   let minusBtns= document.querySelectorAll('.btn1')
+  let deleteBtns= document.querySelectorAll('.btn5')
   let cartItems=localStorage.getItem('productsInCart')
   
  
@@ -54,7 +67,16 @@ function plusAndminus(){
   if(cartItems!=null){
     findIndex(cartItems)
   }
+  for(let i=0;i<deleteBtns.length;i++){
+     deleteBtns[i].addEventListener('click',()=>{
+      cartNumbers(cartItems[tags[i]],-2);
+      totalCost(cartItems[tags[i]],-2)
+      
+     // deleteItems(tags[i])
+    
 
+    });  
+  }
   
  
     for(let i=0;i<plusBtns.length;i++){
@@ -147,7 +169,8 @@ let products=[
 
   for(let i=0;i<carts.length;i++){
     carts[i].addEventListener('click',()=>{
-     
+      myFunction("sepete eklendi")
+   
       cartNumbers(products[i],1);
       totalCost(products[i],1)
     
@@ -165,6 +188,28 @@ function onLoadCartNumbers(){
    }
   
 }
+function deleteItems(productTag){
+ 
+  let cartItems=localStorage.getItem('productsInCart');
+       cartItems=JSON.parse(cartItems);
+        
+       console.log("içeri girdi1")
+       if(cartItems!=null){
+         
+        console.log("içeri girdi2")
+            cartItems[productTag]=null;
+            tags.remove(productTag)
+          
+        localStorage.setItem('productsInCart',JSON.stringify(cartItems));   
+       }else{
+        console.log("içeri girdi3")
+        localStorage.clear()
+       
+      }
+      
+ 
+
+}
 function cartNumbers(products,value){
  
 
@@ -176,9 +221,12 @@ function cartNumbers(products,value){
      if(value==1){
       localStorage.setItem('cartNumbers',productNumbers+1)
       document.querySelector(".logo span").textContent=productNumbers+1
-     }else{
+     }else if(value==-1){
       localStorage.setItem('cartNumbers',productNumbers-1)
       document.querySelector(".logo span").textContent=productNumbers-1
+     }else{
+      localStorage.setItem('cartNumbers',productNumbers-products.inChart)
+      document.querySelector(".logo span").textContent=productNumbers-products.inChart
      }
      
   
@@ -201,13 +249,21 @@ function setItems(product,value){
               ...cartItems,
               [product.tag]:product
             }
+            
+           
           }
           if(value==1){
             cartItems[product.tag].inChart +=1;
-          }else{
+           
+          }else if(value==-1){
             cartItems[product.tag].inChart -=1;
-          }     
+          }else{
+            cartItems[product.tag]=null
+           
+          }
        }else{
+       
+      
         product.inChart=1;
         cartItems={
           [product.tag]:product
@@ -227,9 +283,12 @@ function totalCost(product,value){
     if(value==1){
       cartCost=parseInt(cartCost);
     localStorage.setItem("totalCost",cartCost+product.price);
-     }else{
+     }else if(value==-1){
       cartCost=parseInt(cartCost);
       localStorage.setItem("totalCost",cartCost-product.price);
+     }else{
+      cartCost=parseInt(cartCost);
+      localStorage.setItem("totalCost",cartCost-product.price*product.inChart);
      }
   
   }else{
@@ -246,21 +305,24 @@ function displayChart(){
    
     proCon.innerHTML='';
    Object.values(cartItems).map(item =>{
-     proCon.innerHTML+=   ` <div class="product">
-                        
-                            <img class="image"  src="./images/${item.tag}.jpg">          
-                            <span>${item.name}</span> </div>
-                            <div class='price'>${item.price} ₺</div>
-                            <div class='adet'>
-                            <a class="btns btn1" href=" " >-</a>
-                         
-                           
-                            ${item.inChart} 
-                            <a class="btns btn2" href=" " >+</a>
-                           
-                            </div>
-                            <div class='total'>${item.inChart*item.price},00₺ </div>
-                            `;
+     if(item!=null){
+      proCon.innerHTML+=   ` <div class="product">
+      <a class="btns btn5" href=" " >X</a>
+      <img class="image"  src="./images/${item.tag}.jpg">          
+      <span>${item.name}</span> </div>
+      <div class='price'>${item.price} ₺</div>
+      <div class='adet'>
+      <a class="btns btn1" href=" " >-</a>
+   
+     
+      ${item.inChart} 
+      <a class="btns btn2" href=" " >+</a>
+     
+      </div>
+      <div class='total'>${item.inChart*item.price},00₺ </div>
+      `;
+     }
+
                            
 
 
